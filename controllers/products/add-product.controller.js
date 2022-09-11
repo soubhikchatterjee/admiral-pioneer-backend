@@ -33,10 +33,11 @@ async function addProduct(req, res, next) {
     customQuantity: custom_quantity,
     showProductCustomizationPrompt: show_product_customization_prompt,
     price,
-    // taxId,
+    tax: taxId,
     taxPercentage: tax_percentage
   });
-  const productDoc = await product.save();
+
+  await product.save();
 
   res.status(201).json({ message: "Product has been created successfully" });
 }

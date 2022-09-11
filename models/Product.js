@@ -10,12 +10,12 @@ const productSchema = new mongoose.Schema(
     isMinOrderQuantityRequired: Boolean,
     price: Number,
     customQuantity: Number,
-    showProductCustomizationPrompt: Boolean,
-    taxId: {
+    showProductCustomizationPrompt: Boolean, // used to prompt a user if they want to gift wrap the item
+    tax: {
       type: mongoose.Types.ObjectId,
       ref: "Tax"
     },
-    taxAmount: Number,
+    taxPercentage: Number
   },
   { timestamps: true }
 );

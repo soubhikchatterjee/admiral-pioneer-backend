@@ -14,11 +14,12 @@ const { getLimit, getSkip } = require("../../lib/response");
  * @param {function} next
  */
 async function listProducts(req, res, next) {
-  const productDoc = await Product.find()
+  const productDocs = await Product.find()
+    .populate("tax")
     .sort({ _id: -1 })
     .skip(getSkip(req.query.page, req.query.limit))
     .limit(getLimit(req.query.limit));
-  res.json(productDoc);
+  res.json(productDocs);
 }
 
 module.exports = listProducts;
