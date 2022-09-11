@@ -6,7 +6,7 @@ const PRODUCT_TYPES = {
   VIRTUAL: "virtual"
 };
 
-async function addProduction(req, res, next) {
+async function addProductMiddleware(req, res, next) {
   const schema = Joi.object({
     name: Joi.string().min(3).max(30).required(),
     image_url: Joi.string().required(),
@@ -31,5 +31,5 @@ async function addProduction(req, res, next) {
 }
 
 module.exports = {
-  addProduction
+  addProductMiddleware
 };

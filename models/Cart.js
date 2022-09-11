@@ -2,20 +2,21 @@
 
 const mongoose = require("mongoose");
 
-const orderSchema = new mongoose.Schema(
+const cartSchema = new mongoose.Schema(
   {
-    productId: {
+    product: {
       type: mongoose.Types.ObjectId,
-      ref: "Product",
+      ref: "Product"
     },
     quantity: Number,
     giftWrappingRequired: Boolean,
     giftWrappingType: {
       type: mongoose.Types.ObjectId,
       ref: "GiftWrapType",
-    },
+      default: null
+    }
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Product", orderSchema);
+module.exports = mongoose.model("Cart", cartSchema);
